@@ -4,4 +4,6 @@
 
 <h2>How To Use</h2>
 First of all we need "Esp8266 Development Board" and a Button for project.
-Later, we need to create a new telegram bot (With Bot-Father)
+Later, we need to create a new telegram bot (With BotFather)
+
+![Bot Father Tutorial_289x640](https://user-images.githubusercontent.com/52077360/106382595-ad324680-63d1-11eb-997b-537024224dab.jpg)
