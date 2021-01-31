@@ -1,25 +1,21 @@
-/*
-   Dash Button with Telegram and an ESP8266 - polluxlabs.net
-*/
-
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
 
-//Wifi Ayarları Yapıyoruz
-const char* ssid = "CHARLESHAANEL";
-const char* password = "evcfe7597!";
+//Wifi Settings
+const char* ssid = "Wifi Name";
+const char* password = "Wifi Password";
 
-//Telegram Bot Tokeniizi Giriyoruz
-#define botToken "1579138550:AAGnj5PIFMVOKFHHzdnM2KJX2jPnh-NvIzQ"  //Bot-Token from Botfather)
+//Initialize Telegram-Bot
+#define botToken "Bot_Token"  //Bot-Token from Botfather)
 
-//User ID'mizi giriyoruz
-#define userID "1002010782"
+//Initialize User Id
+#define userID "User_Id"
 
 WiFiClientSecure client;
 UniversalTelegramBot bot(botToken, client);
 
-//Butonun durumunu ayarlıyoruz
+//State of Button
 int switchState = 0;
 
 void setup() {
@@ -27,10 +23,10 @@ void setup() {
   client.setInsecure();
 
   // Verwendete Pins
-  pinMode(13, INPUT); //Buttonun Pinini Ayarlıyoruz
+  pinMode(13, INPUT); //We Set The Button's Pin
 
   //Connect to WiFi
-  Serial.print("Bağlanılan ağ: ");
+  Serial.print("Connecting to: ");
   Serial.println(ssid);
 
   WiFi.mode(WIFI_STA);
@@ -42,9 +38,9 @@ void setup() {
   }
 
   Serial.println("");
-  Serial.println("Bot İnternete Bağlandı!");
+  Serial.println("Bot Connected!");
 
-  bot.sendMessage(userID, "Bot Servere Bağlandı.", "");
+  bot.sendMessage(userID, "Bot Connected to the Server!", "");
 }
 
 void loop() {
@@ -52,7 +48,7 @@ void loop() {
   switchState = digitalRead(13);
   Serial.println(switchState);
   if (switchState) {
-    bot.sendMessage(userID, "Test123", "");
+    bot.sendMessage(userID, "Button pressed.", "");
 
   }
 }
